@@ -1,5 +1,5 @@
 # 使用阿里云镜像源的Python 3.10作为基础镜像
-FROM dockerproxy.net/library/python:3.10-slim
+FROM docker.io/library/python:3.10
 
 # 设置工作目录
 WORKDIR /app
