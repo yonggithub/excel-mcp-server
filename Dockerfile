@@ -8,14 +8,8 @@ WORKDIR /app
 RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip --upgrade && \
     pip install -i https://pypi.tuna.tsinghua.edu.cn/simple uv
 
-# 安装git
-RUN apt-get update && \
-    apt-get install -y git && \
-    rm -rf /var/lib/apt/lists/*
-
-# 克隆项目
-RUN git clone https://github.com/haris-musa/excel-mcp-server.git . && \
-    git checkout main
+# 复制当前项目到容器
+COPY . /app/
 
 # 创建虚拟环境并安装依赖
 RUN uv venv && \
